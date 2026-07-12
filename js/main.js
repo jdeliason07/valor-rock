@@ -163,4 +163,35 @@
       });
     });
   }
+  // Flare animation for background lines
+  var contourPaths = Array.prototype.slice.call(document.querySelectorAll('.hero-contours svg g path'));
+  var copperVein = document.querySelector('.hero-contours .copper-vein');
+  if (copperVein) {
+    contourPaths.push(copperVein);
+  }
+
+  function activateRandomFlare() {
+    if (prefersReducedMotion.matches) return;
+
+    // Reset all flares
+    contourPaths.forEach(function(path) {
+      path.classList.remove('flare-active');
+    });
+
+    // Select a random number of paths to flare (1 to 3)
+    var numFlares = Math.floor(Math.random() * 3) + 1;
+    for (var i = 0; i < numFlares; i++) {
+      var randomIndex = Math.floor(Math.random() * contourPaths.length);
+      contourPaths[randomIndex].classList.add('flare-active');
+    }
+
+    // Schedule next flare after a random delay (between 3 to 8 seconds)
+    var randomDelay = (Math.floor(Math.random() * 6) + 3) * 1000;
+    setTimeout(activateRandomFlare, randomDelay);
+  }
+
+  if (contourPaths.length > 0 && !prefersReducedMotion.matches) {
+    activateRandomFlare(); // Start the animation
+  }
+
 })();
