@@ -16,8 +16,8 @@
 }
 
 @keyframes flare {
-  0%, 100% { opacity: 0.4; filter: drop-shadow(0 0 4px rgba(212,149,109,0.3)); }
-  50% { opacity: 1; filter: drop-shadow(0 0 16px rgba(232,184,150,0.7)); }
+  0%, 100% { opacity: 0.3; filter: drop-shadow(0 0 8px rgba(212,149,109,0.4)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 48px rgba(232,184,150,1)); }
 }
 
 .flare-active {
@@ -57,7 +57,7 @@ a { color: inherit; }
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(135deg, rgba(15,17,20,0.25), rgba(30,25,20,0.35)),
+    linear-gradient(135deg, rgba(20,22,25,0.1), rgba(35,30,25,0.15)),
     url('../assets/strata-bg.jpg') center / cover no-repeat,
     var(--slate-950);
 }
@@ -95,19 +95,19 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-weight: 600;
-  font-size: clamp(2.5rem, 6.5vw, 4.5rem);
-  line-height: 1.08;
-  max-width: 19ch;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  font-size: clamp(2.75rem, 7.5vw, 5.25rem);
+  line-height: 1.05;
+  max-width: 18ch;
+  letter-spacing: -0.025em;
 }
 
 h2 {
-  font-weight: 600;
-  font-size: clamp(1.75rem, 3.6vw, 2.5rem);
-  line-height: 1.15;
-  margin-bottom: 24px;
-  letter-spacing: -0.015em;
+  font-weight: 700;
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  line-height: 1.1;
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
 }
 
 h3 {
@@ -274,9 +274,9 @@ select:focus-visible {
 }
 
 .copper-vein {
-  filter: drop-shadow(0 0 12px rgba(212,149,109,0.6));
-  stroke: #E8B896;
-  opacity: 0.9;
+  filter: drop-shadow(0 0 24px rgba(232,184,150,0.8));
+  stroke: #F5C89A;
+  opacity: 1;
 }
 
 .hero-inner { position: relative; width: 100%; }
