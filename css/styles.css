@@ -28,7 +28,7 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+html { scroll-behavior: smooth; scroll-padding-top: 108px; }
 
 body {
   background: var(--slate-950);
@@ -203,15 +203,17 @@ select:focus-visible {
 .nav {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 32px;
-  height: 68px;
+  height: 88px;
+  position: relative;
 }
 
 .wordmark {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 0.08em;
+  font-size: 24px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--warm-white);
@@ -219,7 +221,7 @@ select:focus-visible {
 }
 
 .nav-links {
-  display: flex;
+  display: none;
   gap: 28px;
   list-style: none;
   margin-inline: auto;
@@ -250,13 +252,19 @@ select:focus-visible {
 .nav-link.active { color: var(--warm-white); }
 .nav-link.active::after { opacity: 1; }
 
-.btn-nav { padding: 9px 18px; font-size: 13px; white-space: nowrap; }
+.btn-nav {
+  padding: 10px 20px;
+  font-size: 13px;
+  white-space: nowrap;
+  position: absolute;
+  right: 24px;
+}
 
 /* ---------- Hero ---------- */
 
 .hero {
   position: relative;
-  min-height: calc(100vh - 68px);
+  min-height: calc(100vh - 88px);
   display: flex;
   align-items: center;
   padding-block: 72px;
