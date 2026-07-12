@@ -37,31 +37,33 @@
 
     <!-- 2 — Hero -->
     <section class="hero" aria-label="Introduction">
-      <div class="hero-contours" aria-hidden="true">
-        <svg class="contour-layer contour-slow" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" focusable="false">
-          <g fill="none" stroke="#8C939D" stroke-width="1">
-            <path stroke-opacity="0.10" d="M-40,720 C180,660 340,700 520,640 C700,580 820,620 1000,560 C1180,500 1320,540 1480,480"/>
-            <path stroke-opacity="0.08" d="M-40,780 C200,720 380,760 560,700 C740,640 880,680 1060,620 C1240,560 1360,600 1480,550"/>
-            <path stroke-opacity="0.07" d="M-40,840 C220,790 420,820 600,765 C780,710 940,745 1120,690 C1300,635 1400,665 1480,630"/>
-            <path stroke-opacity="0.09" d="M-40,180 C160,230 340,190 520,240 C700,290 860,250 1040,300 C1220,350 1340,310 1480,350"/>
-            <path stroke-opacity="0.07" d="M-40,110 C180,160 380,120 560,170 C740,220 900,180 1080,230 C1260,280 1380,240 1480,275"/>
-            <path stroke-opacity="0.06" d="M-40,40 C200,90 400,55 580,100 C760,145 920,110 1100,155 C1280,200 1400,170 1480,195"/>
+      <div class="hero-visual" aria-hidden="true">
+        <svg class="value-stack" viewBox="0 0 240 360" preserveAspectRatio="xMidYMid meet" focusable="false">
+          <!-- Land parcels stacking and growing in value -->
+          <g stroke="#E8B896" stroke-width="2" fill="none">
+            <!-- Base parcel (acquisition) -->
+            <rect x="30" y="260" width="180" height="60" opacity="0.4"/>
+            <text x="120" y="295" font-family="Playfair Display, serif" font-size="12" fill="#E8B896" text-anchor="middle" opacity="0.6">Acquisition</text>
+
+            <!-- Second layer (income generation) -->
+            <rect x="20" y="180" width="200" height="70" opacity="0.6"/>
+            <text x="120" y="220" font-family="Playfair Display, serif" font-size="12" fill="#E8B896" text-anchor="middle" opacity="0.7">Income</text>
+
+            <!-- Third layer (entitlement) -->
+            <rect x="10" y="90" width="220" height="80" opacity="0.8"/>
+            <text x="120" y="135" font-family="Playfair Display, serif" font-size="12" fill="#E8B896" text-anchor="middle" opacity="0.9">Entitlement</text>
+
+            <!-- Top layer (exit/value) -->
+            <rect x="0" y="10" width="240" height="75" opacity="1"/>
+            <text x="120" y="55" font-family="Playfair Display, serif" font-size="14" font-weight="bold" fill="#F5C89A" text-anchor="middle">Value</text>
           </g>
-        </svg>
-        <svg class="contour-layer contour-fast" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" focusable="false">
-          <g fill="none" stroke="#8C939D" stroke-width="1">
-            <path stroke-opacity="0.10" d="M1020,420 C1020,375 1075,345 1130,345 C1195,345 1250,385 1250,435 C1250,485 1190,515 1130,515 C1070,515 1020,470 1020,420 Z"/>
-            <path stroke-opacity="0.09" d="M975,420 C975,350 1055,300 1130,300 C1225,300 1300,365 1300,440 C1300,515 1215,560 1128,560 C1042,560 975,495 975,420 Z"/>
-            <path stroke-opacity="0.08" d="M925,418 C925,325 1030,255 1132,255 C1255,255 1352,340 1352,442 C1352,545 1240,606 1126,606 C1015,606 925,520 925,418 Z"/>
-            <path stroke-opacity="0.07" d="M870,415 C870,295 1005,208 1135,208 C1290,208 1408,315 1408,445 C1408,578 1268,653 1122,653 C982,653 870,545 870,415 Z"/>
-            <path stroke-opacity="0.06" d="M812,412 C812,262 978,160 1138,160 C1330,160 1468,290 1468,448 C1468,612 1298,700 1118,700 C946,700 812,570 812,412 Z"/>
-            <path stroke-opacity="0.05" d="M750,408 C750,228 950,110 1142,110 C1372,110 1530,262 1530,450 C1530,648 1330,748 1112,748 C904,748 750,600 750,408 Z"/>
-            <path stroke-opacity="0.06" d="M120,560 C200,540 250,570 320,548 C395,525 440,556 510,534"/>
-            <path stroke-opacity="0.05" d="M90,610 C185,585 255,618 340,592 C425,566 480,600 560,575"/>
+
+          <!-- Connecting lines showing growth -->
+          <g stroke="#D4956D" stroke-width="1.5" opacity="0.5" stroke-dasharray="4,4">
+            <line x1="120" y1="260" x2="120" y2="180"/>
+            <line x1="120" y1="180" x2="120" y2="90"/>
+            <line x1="120" y1="90" x2="120" y2="10"/>
           </g>
-          <!-- The copper vein: one continuous path at full strength -->
-          <path class="copper-vein" fill="none" stroke="#C87A53" stroke-width="1.5"
-            d="M-40,860 C140,800 260,830 400,750 C540,670 600,700 720,610 C840,520 900,560 1000,470 C1080,398 1055,360 1130,345 C1200,330 1250,385 1250,435 C1250,485 1190,515 1130,515 C1080,515 1050,480 1060,440 C1075,380 1180,360 1290,320 C1380,287 1420,260 1480,230"/>
         </svg>
       </div>
 

@@ -8,7 +8,7 @@
   --copper:#D4956D; --amber:#E8B896; --bronze:#A67856; --sage:#7A9977; --ember:#B85A4F;
   --font-display:'Playfair Display',serif; --font-body:'Lato',sans-serif;
   --track-eyebrow:0.35em; --track-headline:-0.01em;
-  --radius:2px; --container:1200px;
+  --radius:16px; --container:1200px;
   --section-pad:96px; /* 64px under 768px */
   --glow-amber:0 0 32px rgba(232,184,150,0.35);
   --glow-copper:0 0 24px rgba(212,149,109,0.4);
@@ -253,6 +253,7 @@ select:focus-visible {
 .nav-link.active::after { opacity: 1; }
 
 .btn-nav {
+  display: none;
   padding: 10px 20px;
   font-size: 13px;
   white-space: nowrap;
@@ -271,13 +272,20 @@ select:focus-visible {
   overflow: hidden;
 }
 
-.hero-contours { position: absolute; inset: 0; pointer-events: none; }
-
-.contour-layer {
+.hero-visual {
   position: absolute;
-  inset: -40px;
-  width: calc(100% + 80px);
-  height: calc(100% + 80px);
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8%;
+}
+
+.value-stack {
+  width: 240px;
+  height: 360px;
+  opacity: 0.85;
   will-change: transform;
 }
 

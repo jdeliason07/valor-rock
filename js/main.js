@@ -56,22 +56,19 @@
     });
   }
 
-  /* ---------- Hero contour parallax (two speeds, max 30px) ---------- */
+  /* ---------- Hero value stack parallax ---------- */
 
-  var slowLayer = document.querySelector('.contour-slow');
-  var fastLayer = document.querySelector('.contour-fast');
+  var valueStack = document.querySelector('.value-stack');
   var parallaxTicking = false;
 
   function applyParallax() {
     parallaxTicking = false;
     var y = window.scrollY || window.pageYOffset;
-    var slow = Math.min(y * 0.03, 15);
-    var fast = Math.min(y * 0.06, 30);
-    if (slowLayer) slowLayer.style.transform = 'translateY(' + slow + 'px)';
-    if (fastLayer) fastLayer.style.transform = 'translateY(' + fast + 'px)';
+    var offset = Math.min(y * 0.04, 40);
+    if (valueStack) valueStack.style.transform = 'translateY(' + offset + 'px)';
   }
 
-  if (slowLayer && fastLayer && !prefersReducedMotion.matches) {
+  if (valueStack && !prefersReducedMotion.matches) {
     window.addEventListener('scroll', function () {
       if (!parallaxTicking) {
         parallaxTicking = true;
@@ -163,35 +160,31 @@
       });
     });
   }
-  // Flare animation for background lines
-  var contourPaths = Array.prototype.slice.call(document.querySelectorAll('.hero-contours svg g path'));
-  var copperVein = document.querySelector('.hero-contours .copper-vein');
-  if (copperVein) {
-    contourPaths.push(copperVein);
-  }
+  // Value stack flare animation
+  var valueRects = Array.prototype.slice.call(document.querySelectorAll('.value-stack g:first-child rect'));
 
   function activateRandomFlare() {
     if (prefersReducedMotion.matches) return;
 
     // Reset all flares
-    contourPaths.forEach(function(path) {
-      path.classList.remove('flare-active');
+    valueRects.forEach(function(rect) {
+      rect.classList.remove('flare-active');
     });
 
-    // Select a random number of paths to flare (1 to 3)
-    var numFlares = Math.floor(Math.random() * 3) + 1;
+    // Flare 1-2 rectangles randomly
+    var numFlares = Math.floor(Math.random() * 2) + 1;
     for (var i = 0; i < numFlares; i++) {
-      var randomIndex = Math.floor(Math.random() * contourPaths.length);
-      contourPaths[randomIndex].classList.add('flare-active');
+      var randomIndex = Math.floor(Math.random() * valueRects.length);
+      valueRects[randomIndex].classList.add('flare-active');
     }
 
-    // Schedule next flare after a random delay (between 3 to 8 seconds)
+    // Schedule next flare (3-8 seconds)
     var randomDelay = (Math.floor(Math.random() * 6) + 3) * 1000;
     setTimeout(activateRandomFlare, randomDelay);
   }
 
-  if (contourPaths.length > 0 && !prefersReducedMotion.matches) {
-    activateRandomFlare(); // Start the animation
+  if (valueRects.length > 0 && !prefersReducedMotion.matches) {
+    activateRandomFlare();
   }
 
 })();
