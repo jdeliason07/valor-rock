@@ -80,11 +80,11 @@ a { color: inherit; }
 }
 
 .steel-band {
-  height: 2px;
+  height: 3px;
   max-width: var(--container);
   margin-inline: auto;
-  background: var(--steel-band);
-  opacity: 0.35;
+  background: var(--copper);
+  opacity: 0.8;
 }
 
 /* ---------- Type ---------- */
@@ -213,8 +213,8 @@ select:focus-visible {
 .wordmark {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 24px;
-  letter-spacing: 0.15em;
+  font-size: 32px;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--warm-white);
