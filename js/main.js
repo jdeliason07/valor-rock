@@ -80,6 +80,35 @@
     }, { passive: true });
   }
 
+  /* ---------- Contour flare-ups ---------- */
+  /* Every few seconds a random contour line glows copper, then settles */
+
+  if (!prefersReducedMotion.matches) {
+    var contourPaths = Array.prototype.slice.call(
+      document.querySelectorAll('.hero-contours path:not(.copper-vein), .section-contour path')
+    );
+    var veinPath = document.querySelector('.copper-vein');
+
+    var scheduleFlare = function () {
+      var delay = 2200 + Math.random() * 3800; // 2.2s–6s between flares
+      window.setTimeout(function () {
+        // Occasionally pulse the vein itself; usually flare a contour line
+        var target = (Math.random() < 0.18 && veinPath)
+          ? veinPath
+          : contourPaths[Math.floor(Math.random() * contourPaths.length)];
+        if (target) {
+          target.classList.add('flare');
+          window.setTimeout(function () {
+            target.classList.remove('flare');
+          }, 1300 + Math.random() * 500);
+        }
+        scheduleFlare();
+      }, delay);
+    };
+
+    if (contourPaths.length) scheduleFlare();
+  }
+
   /* ---------- FAQ accordion ---------- */
 
   document.querySelectorAll('.accordion-trigger').forEach(function (trigger) {

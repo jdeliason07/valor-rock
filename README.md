@@ -13,6 +13,10 @@ repository root (deploys as-is to GitHub Pages).
   pre-blurred stone-and-copper strata artwork at the same path; no code
   changes needed.
 
+Type system: Fraunces (display), Source Serif 4 (body), IBM Plex Mono
+(technical accents — eyebrows, figures, buttons, labels), loaded from
+Google Fonts.
+
 ## Before launch
 
 - Wire the reserve form to Formspree or a backend
