@@ -53,7 +53,7 @@ a { color: inherit; }
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(rgba(23,19,16,0.55), rgba(23,19,16,0.72)),
+    linear-gradient(rgba(23,19,16,0.38), rgba(23,19,16,0.52)),
     url('../assets/strata-bg.jpg') center / cover no-repeat,
     var(--slate-950);
 }
@@ -73,6 +73,23 @@ a { color: inherit; }
   position: relative;
   padding-block: var(--section-pad);
 }
+
+/* Ambient copper glow carried through the page — keeps the strata wall
+   feeling alive and vivid below the hero, alternating side to side */
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(46% 60% at 82% 30%, rgba(200,122,83,0.12), transparent 72%);
+}
+
+.section:nth-of-type(even)::before {
+  background: radial-gradient(46% 60% at 16% 62%, rgba(200,122,83,0.11), transparent 72%);
+}
+
+.section > .container { position: relative; z-index: 1; }
 
 .steel-band {
   height: 2px;
@@ -115,6 +132,15 @@ h3 { font-size: 1.3rem; line-height: 1.25; }
   text-transform: uppercase;
   color: var(--copper);
   margin-bottom: 16px;
+  text-shadow: 0 0 2px rgba(20,14,10,0.9), 0 1px 6px rgba(20,14,10,0.75);
+}
+
+/* Readability halo for text that sits directly on the vivid strata wall
+   (headings and loose paragraphs live on the background; card text does not) */
+.section h2, h1, .lead, .hero-sub, .chip,
+.strategy-note, .stewards-close, .process-assurance,
+.reserve-sub, .table-wrap + .fine-print {
+  text-shadow: 0 1px 10px rgba(20,14,10,0.6);
 }
 
 .lead {
@@ -243,6 +269,15 @@ select:focus-visible {
 .nav-link.active::after { opacity: 1; }
 
 .btn-nav { padding: 10px 18px; font-size: 12px; white-space: nowrap; }
+
+.nav-cta-short { display: none; }
+
+@media (max-width: 600px) {
+  .nav-cta-full { display: none; }
+  .nav-cta-short { display: inline; }
+  .btn-nav { padding: 9px 14px; }
+  .wordmark { font-size: 13px; letter-spacing: 0.24em; }
+}
 
 /* ---------- Hero ---------- */
 
