@@ -58,7 +58,7 @@ a { color: inherit; }
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(135deg, rgba(20,22,25,0.1), rgba(35,30,25,0.15)),
+    linear-gradient(135deg, rgba(15,17,20,0.24), rgba(26,20,16,0.36)),
     url('../assets/strata-bg.jpg') center / cover no-repeat,
     var(--slate-950);
 }
@@ -126,6 +126,14 @@ h3 {
   text-transform: uppercase;
   color: var(--copper);
   margin-bottom: 16px;
+  text-shadow: 0 0 2px rgba(10,8,6,0.9), 0 1px 6px rgba(10,8,6,0.7);
+}
+
+/* Readability halo for text sitting directly on the vivid strata wall.
+   Card text is unaffected (cards are solid). */
+h1, .section h2, .lead, .hero-sub, .chip,
+.strategy-note, .stewards-close, .process-assurance, .reserve-sub {
+  text-shadow: 0 1px 12px rgba(10,8,6,0.55);
 }
 
 .lead {
@@ -274,6 +282,23 @@ select:focus-visible {
   overflow: hidden;
 }
 
+/* Reading scrim: darkens behind the hero text on the left so copy stays
+   legible over the vivid wall, while the value-stack side stays bright */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg,
+    rgba(13,14,17,0.78) 0%,
+    rgba(13,14,17,0.55) 38%,
+    rgba(13,14,17,0.18) 62%,
+    transparent 80%);
+}
+
+.hero-inner { z-index: 1; }
+
 .hero-visual {
   position: absolute;
   inset: 0;
@@ -322,7 +347,7 @@ select:focus-visible {
 }
 
 .stat-card {
-  background: linear-gradient(135deg, rgba(26,29,36,0.8), rgba(39,48,58,0.6));
+  background-color: #1A1D24;
   border-top: 3px solid var(--copper);
   border-radius: var(--radius);
   padding: 24px 26px;
@@ -349,11 +374,14 @@ select:focus-visible {
 /* ---------- Cards (shared) ---------- */
 
 .card {
-  background: linear-gradient(135deg, rgba(26,29,36,0.7), rgba(39,48,58,0.5));
-  border: 1px solid rgba(212,149,109,0.2);
+  /* Solid background-color (not a gradient in the shorthand): the .ticked
+     rule overrides background-image, so a color layer is what guarantees a
+     readable, opaque card over the vivid strata wall. */
+  background-color: #1A1D24;
+  border: 1px solid rgba(212,149,109,0.28);
   border-radius: var(--radius);
   padding: 28px;
-  box-shadow: inset 0 1px 3px rgba(232,184,150,0.08);
+  box-shadow: 0 10px 34px rgba(0,0,0,0.4), inset 0 1px 3px rgba(232,184,150,0.08);
 }
 
 /* Survey corner ticks */
@@ -791,6 +819,13 @@ select:focus-visible {
 
   .hero { padding-block: 56px; min-height: auto; }
   .hero-contours { opacity: 0.6; }
+
+  /* Wordmark shrinks so it never clips at the right edge */
+  .wordmark { font-size: 22px; letter-spacing: 0.16em; }
+
+  /* The value-stack is decorative and overlaps the CTAs at one column,
+     so drop it on small screens for a clean single-column hero */
+  .hero-visual { display: none; }
 
   .stat-strip { grid-template-columns: 1fr; margin-top: 48px; }
   .steward-cards { grid-template-columns: 1fr; }
