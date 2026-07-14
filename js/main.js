@@ -1,4 +1,4 @@
-/* Valor Rock — vanilla JS: reveals, nav state, parallax, accordion, form */
+/* Valor Partners — vanilla JS: reveals, nav state, parallax, accordion, form */
 (function () {
   'use strict';
 
